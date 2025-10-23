@@ -1,0 +1,18 @@
+:root{
+  --brand: #F66B5D;
+  --bg: #FAF8F6;
+  --text: #222222;
+  --muted: #6b6b6b;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+.btn-brand { background: var(--brand); color: #fff; }
+.section-gap { padding-top: 3rem; padding-bottom: 3rem; }
+
+/* small helpers */
+.hidden-js { display:none !important; }
+
+/* basic responsive */
+@media (max-width: 768px){
+  header .max-w-7xl { padding-left: .75rem; padding-right: .75rem; }
+}

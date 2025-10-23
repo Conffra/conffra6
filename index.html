@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Conffra — Espaços para eventos</title>
+  <meta name="description" content="Conffra — Anuncie e reserve espaços para eventos (quintal, sítio, salão etc.)" />
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#FAF8F6] text-[#222]">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm border-b z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-md flex items-center justify-center bg-[#F66B5D] text-white font-bold">C</div>
+        <span class="text-lg font-semibold">Conffra</span>
+      </a>
+
+      <!-- Right menu -->
+      <nav id="mainNav" class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#home" class="hover:text-[#F66B5D]">Home</a>
+        <a href="#buscar" class="hover:text-[#F66B5D]">Buscar Espaço</a>
+        <a href="#divulgar" id="linkDivulgar" class="hover:text-[#F66B5D]">Divulgar</a>
+        <button id="btnLoginTop" class="text-[#F66B5D] font-medium">Login</button>
+
+        <!-- shown after login -->
+        <a href="#perfil" id="linkPerfil" class="hidden hover:text-[#F66B5D]">Perfil</a>
+        <a href="#painel" id="linkPainel" class="hidden hover:text-[#F66B5D]">Painel</a>
+        <button id="btnLogoutTop" class="hidden text-gray-600">Sair</button>
+      </nav>
+
+      <!-- mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobileToggle" class="p-2 rounded-md border border-gray-200">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 bg-white">
+      <nav class="flex flex-col text-center">
+        <a href="#home" class="py-3 hover:bg-gray-50">Home</a>
+        <a href="#buscar" class="py-3 hover:bg-gray-50">Buscar Espaço</a>
+        <a href="#divulgar" id="linkDivulgarMobile" class="py-3 hover:bg-gray-50">Divulgar</a>
+        <button id="btnLoginMobile" class="py-3 text-[#F66B5D] hover:bg-gray-50">Login</button>
+
+        <a href="#perfil" id="linkPerfilMobile" class="py-3 hover:bg-gray-50 hidden">Perfil</a>
+        <a href="#painel" id="linkPainelMobile" class="py-3 hover:bg-gray-50 hidden">Painel</a>
+        <button id="btnLogoutMobile" class="py-3 hover:bg-gray-50 hidden">Sair</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-20">
+
+    <!-- HOME -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-[#F66B5D]">Encontre o espaço perfeito para seu evento</h1>
+      <p class="text-gray-600 max-w-xl mb-8">Conectamos anfitriões que possuem quintais, salões e sítios a pessoas que buscam lugares únicos para celebrar.</p>
+
+      <form id="homeSearch" class="w-full max-w-2xl mx-auto flex gap-2">
+        <input id="homeInput" type="text" placeholder="Cidade, bairro ou tipo de espaço" class="flex-grow border border-gray-300 rounded-full px-4 py-2 focus:ring-2 focus:ring-[#F66B5D] outline-none">
+        <button type="submit" class="bg-[#F66B5D] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#e65d4f] transition">Buscar</button>
+      </form>
+
+      <div class="mt-6 flex gap-3">
+        <button id="ctaDivulgar" class="bg-[#F66B5D] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#e65d4f]">Divulgar meu espaço</button>
+      </div>
+
+      <!-- mock highlights -->
+      <div class="mt-12 w-full max-w-6xl px-4">
+        <h3 class="text-xl font-semibold mb-4">Destaques</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover rounded-lg mb-3" alt="">
+            <h4 class="font-semibold">Quintal da Dona Marta</h4>
+            <p class="text-sm text-gray-600">Salvador • 40p</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div class="font-semibold">R$ 450</div>
+              <div class="text-yellow-500">★ 4.7</div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+            <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover rounded-lg mb-3" alt="">
+            <h4 class="font-semibold">Sítio Recanto Alegre</h4>
+            <p class="text-sm text-gray-600">Itacaré • 120p</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div class="font-semibold">R$ 1.200</div>
+              <div class="text-yellow-500">★ 4.9</div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover rounded-lg mb-3" alt="">
+            <h4 class="font-semibold">Salão Vista Alegre</h4>
+            <p class="text-sm text-gray-600">Vitória da Conquista • 200p</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div class="font-semibold">R$ 1.800</div>
+              <div class="text-yellow-500">★ 4.8</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSCAR -->
+    <section id="buscar" class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-4">Buscar Espaço</h2>
+        <p class="text-gray-600 mb-6">Filtre por cidade, capacidade e preço.</p>
+
+        <form id="searchForm" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 grid grid-cols-1 md:grid-cols-4 gap-4">
+          <input id="qCity" type="text" placeholder="Cidade (ex: Salvador)" class="border border-gray-200 rounded-lg px-4 py-2" />
+          <input id="qDate" type="date" class="border border-gray-200 rounded-lg px-4 py-2" />
+          <select id="qCapacity" class="border border-gray-200 rounded-lg px-4 py-2">
+            <option value="">Capacidade</option>
+            <option value="20">1–20</option>
+            <option value="50">21–50</option>
+            <option value="100">51–100</option>
+          </select>
+          <button type="submit" class="btn-brand rounded-lg px-4 py-2 bg-[#F66B5D] text-white">Buscar</button>
+        </form>
+
+        <div id="results" class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- populated by script -->
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVULGAR (o formulário só aceita submissão para anunciantes logados) -->
+    <section id="divulgar" class="py-20 px-4 bg-[#FAF8F6]">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-[#F66B5D] mb-4">Divulgue seu espaço</h2>
+        <p class="text-gray-600 mb-6">Apenas anunciantes autenticados podem cadastrar seus espaços.</p>
+
+        <div id="divulgarBox" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          <form id="announceForm" class="space-y-4">
+            <div>
+              <label class="block font-semibold mb-1">Nome do espaço *</label>
+              <input type="text" id="aName" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+            </div>
+
+            <div>
+              <label class="block font-semibold mb-1">Tipo de espaço *</label>
+              <select id="aType" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+                <option value="">Selecione</option>
+                <option value="sítio">Sítio</option>
+                <option value="salão">Salão de festas</option>
+                <option value="piscina">Espaço com piscina</option>
+                <option value="infantil">Espaço infantil</option>
+                <option value="quintal">Quintal</option>
+                <option value="outros">Outros</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block font-semibold mb-1">Endereço completo *</label>
+              <input type="text" id="aAddress" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+            </div>
+
+            <div>
+              <label class="block font-semibold mb-1">Telefone (com DDD) *</label>
+              <input type="tel" id="aPhone" placeholder="(11) 99999-9999" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+            </div>
+
+            <div>
+              <label class="block font-semibold mb-1">Email para orçamentos *</label>
+              <input type="email" id="aEmail" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+            </div>
+
+            <div>
+              <label class="block font-semibold mb-1">Site / Instagram (opcional)</label>
+              <input type="url" id="aSite" placeholder="https://..." class="w-full border border-gray-200 rounded-lg px-4 py-2">
+            </div>
+
+            <div>
+              <label class="block font-semibold mb-1">Descrição</label>
+              <textarea id="aDesc" rows="4" class="w-full border border-gray-200 rounded-lg px-4 py-2"></textarea>
+            </div>
+
+            <div>
+              <label class="block font-semibold mb-1">Fotos (URLs separadas por vírgula)</label>
+              <input type="text" id="aImgs" placeholder="https://... , https://..." class="w-full border border-gray-200 rounded-lg px-4 py-2">
+              <p class="text-xs text-gray-500 mt-1">No MVP usamos URLs — em produção, implemente upload com armazenamento em nuvem.</p>
+            </div>
+
+            <div class="text-right">
+              <button id="announceSubmit" type="submit" class="bg-[#F66B5D] text-white px-6 py-2 rounded-lg font-semibold">Anunciar</button>
+            </div>
+
+            <p id="announceNote" class="text-sm text-red-600 hidden">Você precisa estar logado como ANUNCIANTE para enviar um anúncio.</p>
+            <p id="announceSuccess" class="text-sm text-green-600 hidden">Anúncio criado com sucesso (mock)!</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGIN / CADASTRO -->
+    <section id="login" class="py-20 px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Login -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h3 class="text-xl font-semibold mb-4">Entrar</h3>
+            <form id="formLogin" class="space-y-4">
+              <div>
+                <label class="block text-sm font-semibold mb-1">Email</label>
+                <input id="loginEmail" type="email" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-1">Senha</label>
+                <input id="loginPass" type="password" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+              </div>
+              <div>
+                <button type="submit" class="w-full bg-[#F66B5D] text-white px-4 py-2 rounded-lg font-semibold">Entrar</button>
+              </div>
+              <p id="loginError" class="text-sm text-red-600 hidden">Email ou senha inválidos.</p>
+            </form>
+          </div>
+
+          <!-- Cadastro -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h3 class="text-xl font-semibold mb-4">Cadastre-se</h3>
+            <form id="formRegister" class="space-y-4">
+              <div>
+                <label class="block text-sm font-semibold mb-1">Você é</label>
+                <div class="flex gap-4">
+                  <label class="inline-flex items-center gap-2"><input type="radio" name="rType" value="cliente" checked> Cliente</label>
+                  <label class="inline-flex items-center gap-2"><input type="radio" name="rType" value="anunciante"> Anunciante</label>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-semibold mb-1">Nome *</label>
+                  <input id="rFirstName" type="text" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold mb-1">Sobrenome *</label>
+                  <input id="rLastName" type="text" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold mb-1">Cidade *</label>
+                <input id="rCity" type="text" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold mb-1">Email *</label>
+                <input id="rEmail" type="email" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold mb-1">Telefone (com DDD) *</label>
+                <input id="rPhone" type="tel" placeholder="(11) 99999-9999" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-semibold mb-1">Senha *</label>
+                  <input id="rPass" type="password" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold mb-1">Confirmar senha *</label>
+                  <input id="rPassConfirm" type="password" class="w-full border border-gray-200 rounded-lg px-4 py-2" required>
+                </div>
+              </div>
+
+              <div>
+                <label class="inline-flex items-start gap-3">
+                  <input id="rAgree" type="checkbox" class="mt-1" />
+                  <span class="text-sm">Li e aceito os <a href="#" class="text-[#F66B5D] underline">Termos de Uso</a> e a <a href="#" class="text-[#F66B5D] underline">Política de Privacidade</a>.</span>
+                </label>
+              </div>
+
+              <div>
+                <button type="submit" class="w-full bg-[#F66B5D] text-white px-4 py-2 rounded-lg font-semibold">Cadastrar</button>
+              </div>
+
+              <p id="registerError" class="text-sm text-red-600 hidden"></p>
+              <p id="registerSuccess" class="text-sm text-green-600 hidden">Cadastro realizado com sucesso. Faça login.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERFIL (visível sempre, mas menu acessa só após login) -->
+    <section id="perfil" class="py-20 px-4 bg-[#FAF8F6]">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-[#F66B5D] mb-4">Meu Perfil</h2>
+        <div id="profileBox" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          <p id="profileInfo" class="text-gray-700">Faça login para ver seus dados.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAINEL DO ANFITRIÃO -->
+    <section id="painel" class="py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-[#F66B5D] mb-4">Painel do Anfitrião</h2>
+        <div id="panelBox" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          <p id="panelInfo" class="text-gray-700">Acesse o painel após login como anunciante para gerenciar seus anúncios.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t text-center py-6">
+    <div class="max-w-7xl mx-auto text-sm text-gray-600">
+      © 2025 Conffra — conectando espaços e eventos.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
