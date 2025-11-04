@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cadastro — Conffra</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{background:#FFFFFF; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; height:100vh; display:flex; align-items:center; justify-content:center;}
+    .card{width:100%;max-width:760px;padding:28px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.06);display:grid;grid-template-columns:1fr;gap:12px;}
+    .brand{color:#F66B5D;font-weight:700;font-size:20px;margin-bottom:8px;}
+    .muted{color:#6b6b6b;font-size:14px;}
+    .input{border:1px solid #e6e6e6;padding:12px;border-radius:8px;width:100%;}
+    .btn{background:#F66B5D;color:white;padding:12px;border-radius:10px;width:100%;font-weight:600;}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .msg{padding:10px;border-radius:8px;margin-top:8px;display:none;}
+    .msg.error{background:#ffe7e3;color:#a42212}
+    .msg.success{background:#eafbe9;color:#166534}
+  </style>
+</head>
+<body>
+  <div class="card bg-white">
+    <div>
+      <div class="brand">Conffra</div>
+      <h1 class="text-2xl font-semibold mb-2">Cadastro</h1>
+      <p class="muted mb-4">Crie sua conta para usar o Conffra (cliente ou anunciante).</p>
+    </div>
+
+    <form id="registerForm" class="space-y-3">
+      <div>
+        <label class="text-sm muted">Você é *</label>
+        <div class="grid2">
+          <label><input type="radio" name="rType" value="cliente" checked> Cliente</label>
+          <label><input type="radio" name="rType" value="anunciante"> Anunciante</label>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <input id="rFirstName" class="input" type="text" placeholder="Nome" required>
+        <input id="rLastName" class="input" type="text" placeholder="Sobrenome" required>
+      </div>
+
+      <div>
+        <input id="rCity" class="input" type="text" placeholder="Cidade" required>
+      </div>
+
+      <div>
+        <input id="rEmail" class="input" type="email" placeholder="E‑mail" required>
+      </div>
+
+      <div>
+        <input id="rPhone" class="input" type="tel" placeholder="Telefone com DDD (ex: (11) 99999-9999)" required>
+      </div>
+
+      <div class="grid2">
+        <input id="rPass" class="input" type="password" placeholder="Senha (mín 6 caracteres)" required>
+        <input id="rPassConfirm" class="input" type="password" placeholder="Confirmar senha" required>
+      </div>
+
+      <div>
+        <label class="inline-flex items-start gap-3"><input id="rAgree" type="checkbox" class="mt-1"> <span class="muted">Li e aceito os <a href="#" class="linkbtn">Termos</a> e a <a href="#" class="linkbtn">Política de Privacidade</a></span></label>
+      </div>
+
+      <div>
+        <button class="btn" type="submit">Cadastrar</button>
+      </div>
+
+      <div id="registerMsg" class="msg"></div>
+    </form>
+
+    <p class="mt-2 muted text-sm">Já tem conta? <a href="login.html" class="linkbtn">Entrar</a></p>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Entrar — Conffra</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{background:#FFFFFF; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; height:100vh; display:flex; align-items:center; justify-content:center;}
+    .card{width:100%;max-width:420px;padding:28px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.06);}
+    .brand{color:#F66B5D;font-weight:700;font-size:20px;margin-bottom:8px;}
+    .muted{color:#6b6b6b;font-size:14px;}
+    .input{border:1px solid #e6e6e6;padding:12px;border-radius:8px;width:100%;}
+    .btn{background:#F66B5D;color:white;padding:12px;border-radius:10px;width:100%;font-weight:600;}
+    .linkbtn{color:#F66B5D;font-weight:600}
+    .msg{padding:10px;border-radius:8px;margin-top:8px;display:none;}
+    .msg.error{background:#ffe7e3;color:#a42212}
+    .msg.success{background:#eafbe9;color:#166534}
+  </style>
+</head>
+<body>
+  <div class="card bg-white">
+    <div class="brand">Conffra</div>
+    <h1 class="text-2xl font-semibold mb-2">Entrar</h1>
+    <p class="muted mb-4">Acesse sua conta com e‑mail e senha.</p>
+
+    <form id="loginForm" class="space-y-3">
+      <div>
+        <label class="text-sm muted">E‑mail</label>
+        <input id="loginEmail" class="input" type="email" required placeholder="seu@email.com">
+      </div>
+      <div>
+        <label class="text-sm muted">Senha</label>
+        <input id="loginPass" class="input" type="password" required placeholder="******">
+      </div>
+      <div>
+        <button type="submit" class="btn">Entrar</button>
+      </div>
+      <div id="loginMsg" class="msg"></div>
+    </form>
+
+    <p class="mt-4 muted text-sm">Ainda não tem conta? <a href="cadastro-usuario.html" class="linkbtn">Cadastre‑se</a></p>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
